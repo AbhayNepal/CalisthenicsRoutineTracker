@@ -1,0 +1,26 @@
+﻿@model Carrier
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index Workout</h1>
+
+<table class="table table-border table-striped" style ="width:100%">
+    <thead>
+        <select name="DropDownSelectedDate">
+    <option value="">Select a Date</option>
+    @foreach(var date in Model.carrier_date)
+    {
+    <option value=@date.date>@date.date</option>
+    }
+        </select>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+</table>
