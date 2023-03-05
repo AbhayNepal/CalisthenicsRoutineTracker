@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalisthenicsRoutineTracker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230304125541_MakeDatabase")]
-    partial class MakeDatabase
+    [Migration("20230305085103_CreateDatabase")]
+    partial class CreateDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,16 +27,16 @@ namespace CalisthenicsRoutineTracker.Migrations
 
             modelBuilder.Entity("CalisthenicsRoutineTracker.Models.Date", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("DateId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DateId"));
 
                     b.Property<DateTime>("date")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+                    b.HasKey("DateId");
 
                     b.ToTable("date");
                 });
@@ -49,7 +49,7 @@ namespace CalisthenicsRoutineTracker.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("DateId")
+                    b.Property<int>("DateId")
                         .HasColumnType("int");
 
                     b.Property<string>("name")
@@ -79,7 +79,9 @@ namespace CalisthenicsRoutineTracker.Migrations
                 {
                     b.HasOne("CalisthenicsRoutineTracker.Models.Date", null)
                         .WithMany("workouts")
-                        .HasForeignKey("DateId");
+                        .HasForeignKey("DateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CalisthenicsRoutineTracker.Models.Date", b =>

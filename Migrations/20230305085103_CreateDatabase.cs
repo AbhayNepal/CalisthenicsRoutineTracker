@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CalisthenicsRoutineTracker.Migrations
 {
     /// <inheritdoc />
-    public partial class MakeDatabase : Migration
+    public partial class CreateDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,13 +15,13 @@ namespace CalisthenicsRoutineTracker.Migrations
                 name: "date",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    DateId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_date", x => x.Id);
+                    table.PrimaryKey("PK_date", x => x.DateId);
                 });
 
             migrationBuilder.CreateTable(
@@ -30,12 +30,12 @@ namespace CalisthenicsRoutineTracker.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    DateId = table.Column<int>(type: "int", nullable: false),
                     name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     set1_reps = table.Column<int>(type: "int", nullable: false),
                     set2_reps = table.Column<int>(type: "int", nullable: false),
                     set3_reps = table.Column<int>(type: "int", nullable: false),
-                    set4_reps = table.Column<int>(type: "int", nullable: false),
-                    DateId = table.Column<int>(type: "int", nullable: true)
+                    set4_reps = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -44,7 +44,8 @@ namespace CalisthenicsRoutineTracker.Migrations
                         name: "FK_Workouts_date_DateId",
                         column: x => x.DateId,
                         principalTable: "date",
-                        principalColumn: "Id");
+                        principalColumn: "DateId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

@@ -1,6 +1,8 @@
 ﻿using CalisthenicsRoutineTracker.Data;
 using CalisthenicsRoutineTracker.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Threading;
 
 
 namespace CalisthenicsRoutineTracker.Controllers
@@ -13,15 +15,21 @@ namespace CalisthenicsRoutineTracker.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Index(string date)
         {
             var ControllerToViewCarrier = new Carrier();
+            if (!string.IsNullOrEmpty(date))
+            {
+                ControllerToViewCarrier.carrier_workouts = _db.Workouts.Where(w=>w.DateId == int.Parse(date));
+                ControllerToViewCarrier.currentDate = _db.date.Find(int.Parse(date)).date.ToString();
+            }
+            else
+            {
+                ControllerToViewCarrier.currentDate = "AllDate";
+            }
 
-            IEnumerable<Workout> workouts = _db.Workouts;
-            IEnumerable<Date> date = _db.date;
-            ControllerToViewCarrier.carrier_date = date;
-            ControllerToViewCarrier.carrier_workouts = workouts;
-            
+            ControllerToViewCarrier.carrier_date = _db.date;
+           
             return View(ControllerToViewCarrier);
         }
     }

@@ -1,26 +1,87 @@
 ﻿@model Carrier
 @{
     ViewData["Title"] = "Index";
+
 }
 
 <h1>Index Workout</h1>
 
-<table class="table table-border table-striped" style ="width:100%">
-    <thead>
-        <select name="DropDownSelectedDate">
-    <option value="">Select a Date</option>
-    @foreach(var date in Model.carrier_date)
-    {
-    <option value=@date.date>@date.date</option>
-    }
-        </select>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
 
-            </th>
-        </tr>
-    </thead>
+
+<table class="table table-border table-striped" style ="width:100%">
+
+
+
+
+
+@using (Html.BeginForm("Index", "Workout", FormMethod.Get))
+{
+    <div class="form-group">
+        <label for="date">Select a date:</label>
+        <select class="form-control" id="date" name="date" onchange="this.form.submit()">
+            <option value="">@Model.currentDate</option>
+            @foreach (var item in Model.carrier_date)
+            {
+                <option value="@item.DateId">@item.date.ToString("dd-MM-yy")</option>
+            }
+        </select>
+    </div>
+}
+
+@if (Model.carrier_workouts != null && Model.carrier_workouts.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Set 1 Reps</th>
+                <th>Set 2 Reps</th>
+                <th>Set 3 Reps</th>
+                <th>Set 4 Reps</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.carrier_workouts)
+            {
+                <tr>
+                    <td>@item.name</td>
+                    <td>@item.set1_reps</td>
+                    <td>@item.set2_reps</td>
+                    <td>@item.set3_reps</td>
+                    <td>@item.set4_reps</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h3>Your achievements for date : @Model.currentDate</h3>
+}
+else
+{
+    <p>No workouts found for the selected date.</p>
+}
+
+
+@*    @{
+
+        var RawListOfWorkouts = Model.carrier_workouts.ToList();
+        var ListOfDates = Model.carrier_date.ToList();
+    }
+    <select name="DropDownSelectedDate" id="DD" onchange="getSeletedValue();">
+        <option value="">Select a Date</option>
+        @* <option value=@date.carrier_workouts>@date.carrier_date</option>
+        @for (int i = 0; i <= 1; i++)
+        {
+            <option value=@ListOfDates[i]>@ListOfDates[i].date</option>
+
+        }
+
+    </select>
+    <h1>Displaying Workouts on date  </h1>
 </table>
+<script>
+    function getSeletedValue() {
+        selectedValue = document.getElementById("DD").value;
+        console.log(selectedValue)
+    }
+</script>
+*@
