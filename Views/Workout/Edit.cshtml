@@ -1,0 +1,41 @@
+﻿@model Carrier
+
+<form method="post" asp-action="Edit">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h1 class="text-primary">Edit your Entries for @Model.date_view.date</h1><br></br>
+        </div>
+    </div>
+
+    <div class="mb-3">
+
+
+        <label asp-for="@Model.workout_view.DateId"></label>
+        <input asp-for="@Model.workout_view.DateId" hidden class="form-control"></input>
+
+        <label asp-for="@Model.workout_view.Id"></label>
+        <input asp-for="@Model.workout_view.Id" hidden class="form-control"></input>
+
+        <label asp-for="@Model.workout_view.name"></label>
+        <input asp-for="@Model.workout_view.name" class="form-control"></input>
+        
+        <label asp-for="@Model.workout_view.set1_reps"></label>
+        <input asp-for="@Model.workout_view.set1_reps" class="form-control"></input>
+        
+        <label asp-for="@Model.workout_view.set2_reps"></label>
+        <input asp-for="@Model.workout_view.set2_reps" class="form-control"></input>
+        
+        <label asp-for="@Model.workout_view.set3_reps"></label>
+        <input asp-for="@Model.workout_view.set3_reps" class="form-control"></input>
+        
+        <label asp-for="@Model.workout_view.set4_reps"></label>
+        <input asp-for="@Model.workout_view.set4_reps" class="form-control"></input>
+        <div class="container pt-5">
+            <div class="container col-6">
+            <button type="submit" class="btn btn-primary text-start"  style="width:250px">Update</button>
+            <a asp-asp-controller="Workout" asp-action="Index" class="btn btn-secondary text-end" style="width:100px;height:auto"><i class="bi bi-arrow-left-circle"></i>Tracker</a>
+                
+        </div>
+    </div>
+</form>
+

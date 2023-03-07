@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CalisthenicsRoutineTracker.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateDatabase : Migration
+    public partial class MakeDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -40,28 +40,17 @@ namespace CalisthenicsRoutineTracker.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Workouts", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Workouts_date_DateId",
-                        column: x => x.DateId,
-                        principalTable: "date",
-                        principalColumn: "DateId",
-                        onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Workouts_DateId",
-                table: "Workouts",
-                column: "DateId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Workouts");
+                name: "date");
 
             migrationBuilder.DropTable(
-                name: "date");
+                name: "Workouts");
         }
     }
 }

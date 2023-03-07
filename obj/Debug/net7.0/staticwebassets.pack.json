@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CalisthenicsRoutineTracker.bundle.scp.css"
     },
     {
+      "Id": "E:\\DotNet\\CalisthenicsRoutineTracker\\wwwroot\\css\\bootswatchTheme.css",
+      "PackagePath": "staticwebassets\\css\\bootswatchTheme.css"
+    },
+    {
       "Id": "E:\\DotNet\\CalisthenicsRoutineTracker\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

@@ -1,0 +1,38 @@
+﻿@model Carrier
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h1 class="text-primary">Achieved some new levels??</h1><br></br><h3 class="text-primary btn-success"> Add it here!! </h3>
+        </div>
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="date_view.date"></label>
+        <input asp-for="date_view.date.Date" type="date" class="form-control"></input>
+
+
+        <label asp-for="workout_view.name"></label>
+        <input asp-for="workout_view.name" class="form-control"></input>
+        
+        <label asp-for="workout_view.set1_reps"></label>
+        <input asp-for="workout_view.set1_reps" class="form-control"></input>
+        
+        <label asp-for="workout_view.set2_reps"></label>
+        <input asp-for="workout_view.set2_reps" class="form-control"></input>
+        
+        <label asp-for="workout_view.set3_reps"></label>
+        <input asp-for="workout_view.set3_reps" class="form-control"></input>
+        
+        <label asp-for="workout_view.set4_reps"></label>
+        <input asp-for="workout_view.set4_reps" class="form-control"></input>
+        <div class="container pt-5">
+            <div class="container col-6">
+            <button type="submit" class="btn btn-primary text-start" style="width:250px">Add New Workout</button>
+            <a asp-asp-controller="Workout" asp-action="Index" class="btn btn-secondary text-end" style="width:100px;height:auto"><i class="bi bi-arrow-left-circle"></i>Tracker</a>
+                
+        </div>
+    </div>
+</form>
+

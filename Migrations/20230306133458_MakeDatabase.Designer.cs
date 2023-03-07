@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CalisthenicsRoutineTracker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230305085103_CreateDatabase")]
-    partial class CreateDatabase
+    [Migration("20230306133458_MakeDatabase")]
+    partial class MakeDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,23 +70,7 @@ namespace CalisthenicsRoutineTracker.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DateId");
-
                     b.ToTable("Workouts");
-                });
-
-            modelBuilder.Entity("CalisthenicsRoutineTracker.Models.Workout", b =>
-                {
-                    b.HasOne("CalisthenicsRoutineTracker.Models.Date", null)
-                        .WithMany("workouts")
-                        .HasForeignKey("DateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CalisthenicsRoutineTracker.Models.Date", b =>
-                {
-                    b.Navigation("workouts");
                 });
 #pragma warning restore 612, 618
         }

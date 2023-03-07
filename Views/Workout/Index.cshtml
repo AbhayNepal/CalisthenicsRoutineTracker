@@ -3,26 +3,33 @@
     ViewData["Title"] = "Index";
 
 }
-
-<h1>Index Workout</h1>
-
-
-
+<div class="container-fluid pt-3">
+    <div class="row pt-4">
+        <div class="col-6 ">
+        <h1 class="text-primary">No Pain No Gain!
+        </h1>
+     </div>
+   <div class="col-6 text-end">
+         <a asp-controller="Workout" asp-action="AddWorkout" class="btn btn-primary">
+                <i class="bi bi-plus"></i> AddNewWorkout
+                </a>
+      
+            </div>
+       </div>
+</div>
+<br />
 <table class="table table-border table-striped" style ="width:100%">
-
-
-
 
 
 @using (Html.BeginForm("Index", "Workout", FormMethod.Get))
 {
     <div class="form-group">
-        <label for="date">Select a date:</label>
-        <select class="form-control" id="date" name="date" onchange="this.form.submit()">
+        <label for="date" >Select a date:</label>
+        <select class="form-control" id="date" type="date"  name="date" onchange="this.form.submit()">
             <option value="">@Model.currentDate</option>
             @foreach (var item in Model.carrier_date)
             {
-                <option value="@item.DateId">@item.date.ToString("dd-MM-yy")</option>
+                <option value="@item.DateId" type = "date">@item.date.Date.ToString("dd-MM-yy")</option>
             }
         </select>
     </div>
@@ -49,7 +56,10 @@
                     <td>@item.set2_reps</td>
                     <td>@item.set3_reps</td>
                     <td>@item.set4_reps</td>
+                    <td> <a asp-asp-controller="Workout" asp-action="Edit" style="width:100px" asp-route-id="@item.Id"><i class="bi bi-pen"></i></a> </td>
+                    <td> <a asp-asp-controller="Workout" asp-action="Delete" style="width:100px" asp-route-id ="@item.Id"><i class="bi bi-trash3"></i></a></td>
                 </tr>
+ 
             }
         </tbody>
     </table>

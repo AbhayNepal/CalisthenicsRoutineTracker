@@ -67,23 +67,7 @@ namespace CalisthenicsRoutineTracker.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DateId");
-
                     b.ToTable("Workouts");
-                });
-
-            modelBuilder.Entity("CalisthenicsRoutineTracker.Models.Workout", b =>
-                {
-                    b.HasOne("CalisthenicsRoutineTracker.Models.Date", null)
-                        .WithMany("workouts")
-                        .HasForeignKey("DateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CalisthenicsRoutineTracker.Models.Date", b =>
-                {
-                    b.Navigation("workouts");
                 });
 #pragma warning restore 612, 618
         }

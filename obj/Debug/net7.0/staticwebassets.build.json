@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HXqfNCxlUb6N3yZx26e6HbY2lqhqiY/Yg7Y3sE/miCg=",
+  "Hash": "T8I/h0QiZlAj6ExVQ9bAidYGKuyS4sBgGDRqfrVhFdo=",
   "Source": "CalisthenicsRoutineTracker",
   "BasePath": "_content/CalisthenicsRoutineTracker",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\DotNet\\CalisthenicsRoutineTracker\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\CalisthenicsRoutineTracker.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\DotNet\\CalisthenicsRoutineTracker\\wwwroot\\css\\bootswatchTheme.css",
+      "SourceId": "CalisthenicsRoutineTracker",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\DotNet\\CalisthenicsRoutineTracker\\wwwroot\\",
+      "BasePath": "_content/CalisthenicsRoutineTracker",
+      "RelativePath": "css/bootswatchTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootswatchTheme.css"
     },
     {
       "Identity": "E:\\DotNet\\CalisthenicsRoutineTracker\\wwwroot\\css\\site.css",

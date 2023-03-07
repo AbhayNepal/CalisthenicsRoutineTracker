@@ -10,7 +10,7 @@ namespace CalisthenicsRoutineTracker.Models
         public int DateId { get; set; }
 
 
-        public DateTime date { get; set; } = DateTime.Now;
+        public DateTime date { get; set; } = DateTime.Now.Date;
     }
 
 }

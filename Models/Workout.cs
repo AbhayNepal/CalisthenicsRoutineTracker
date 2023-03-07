@@ -6,10 +6,11 @@ namespace CalisthenicsRoutineTracker.Models
     public class Workout
     {
         [ForeignKey("DateId")]
-        public int DateId { get; set; }
+        public int DateId { get; set; } 
         // public DateTime Date { get; set; } = DateTime.Now;
         [Key]
-        public int Id { get; set; }
+       public int Id { get; set; }
+        
         [Required]
 
         public string name { get; set; }
